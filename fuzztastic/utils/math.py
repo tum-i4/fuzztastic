@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from collections.abc import Sequence
+
 
 def div(numerator: int | float, denominator: int | float, default: float = 0.0) -> float:
     """Safely divide two numbers (returns 0 if the denominator is zero)."""
     return numerator / denominator if denominator != 0 else default
 
 
-def avg(values: list[int | float]) -> float:
+def avg(values: Sequence[int | float]) -> float:
     """Safely calculate the average of a list of numbers (returns 0 if the list is empty)."""
     return div(sum(values), len(values))
