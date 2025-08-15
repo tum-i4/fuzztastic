@@ -92,7 +92,7 @@ struct FuzztasticPass : public PassInfoMixin<FuzztasticPass> {
                 }
 
                 if (!lines.empty()) {
-                    // Insert a function call to the runtime library to track BB coverage, i.e., "__ft_inc_cov(bbId)"
+                    // Insert a function call to the runtime library to track BB coverage, i.e., "ft_inc_cov(bbId)"
                     builder.SetInsertPoint(&bb, bb.getFirstInsertionPt());
                     builder.CreateCall(ftIncCovFunc, {ConstantInt::get(Type::getInt32Ty(context), bbId)});
 
